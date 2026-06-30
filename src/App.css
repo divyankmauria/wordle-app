@@ -1,3 +1,14 @@
+:root{
+  --correct-color: 	#6ca965;
+  --present-color: #c9b458;
+  --absent-color: #787c7f;
+}
+.wordle-game{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
 .wordle-app{
   display: flex;
   flex-direction: column;
@@ -8,7 +19,6 @@
 display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr;
-  gap: 1em;
   background: #fff;
 }
 
@@ -29,6 +39,21 @@ display: grid;
   height: 100px;
   width: 100px;
   display: flex;
+}
+
+.tile.correct{
+  background-color: var(--correct-color);
+  border-color: var(--correct-color);
+}
+
+.tile.present{
+  background-color: var(--present-color);
+  border-color: var(--present-color);
+}
+
+.tile.absent{
+  background-color: var(--absent-color);
+  border-color: var(--absent-color);
 }
 
 .tile strong{

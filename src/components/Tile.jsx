@@ -1,6 +1,6 @@
-function Tile({char}) {
+function Tile({char, status}) {
     return ( 
-    <div class="tile">
+    <div  className={`tile ${status.toLowerCase()}`}>
         <strong>{char?.toUpperCase()}</strong>
     </div> 
     );
