@@ -9,9 +9,9 @@ A React + Vite implementation of the Wordle word game.
 - Backspace removes the most recent letter from the active guess.
 - Enter submits the guess after validating that it is a five-letter allowed word.
 - Submitted guesses show tile feedback:
-  - `correct`: the letter is in the right position.
-  - `present`: the letter is in the word but in a different position.
-  - `absent`: the letter is not in the word.
+  - `correct`: the letter is in the right position ✅
+  - `present`: the letter is in the word but in a different position ❓
+  - `absent`: the letter is not in the word ❌
 - Invalid guesses display an `Invalid Word` message.
 - The answer is selected from the answer list based on the current day.
 
