@@ -1,16 +1,42 @@
-# React + Vite
+# Wordle App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite implementation of the Wordle word game.
 
-Currently, two official plugins are available:
+## Wordle Functionality
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Players get six attempts to guess a five-letter word.
+- Keyboard input fills the current guess row with lowercase letters.
+- Backspace removes the most recent letter from the active guess.
+- Enter submits the guess after validating that it is a five-letter allowed word.
+- Submitted guesses show tile feedback:
+  - `correct`: the letter is in the right position.
+  - `present`: the letter is in the word but in a different position.
+  - `absent`: the letter is not in the word.
+- Invalid guesses display an `Invalid Word` message.
+- The answer is selected from the answer list based on the current day.
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Install dependencies:
 
-## Expanding the ESLint configuration
+```bash
+npm install
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
