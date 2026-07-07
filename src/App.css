@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root{
   --correct-color: 	#6ca965;
   --present-color: #c9b458;
@@ -9,36 +11,7 @@
   gap: 1em;
 }
 
-.wordle-app{
-  display: flex;
-  flex-direction: column;
-  padding: 2em;
-}
-
-.board{
-display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr;
-  background: #fff;
-}
-
-.tile-row{
-  gap: 1rem;
-  flex: 1;
-  background: #fff;
-  align-items: stretch;
-  justify-content: center;
-  display: flex;
-  padding: 1rem;
-}
-
 .tile {
-  flex: 0 1 100px;
-  border-radius: 5px;
-  border: 5px solid #666;
-  height: 100px;
-  width: 100px;
-  display: flex;
   transition: background-color 0.6s ease-in-out, border-color 0.6s ease-in-out;
 }
 
@@ -77,12 +50,12 @@ display: grid;
   transition-delay: 2.4s;
 } 
 
-.tile strong{
+/* .tile strong{
   font-size: 3rem;
   color: #000;
   flex: 1;
   align-content: center;
-}
+} */
 
 @keyframes reveal {
   0%{

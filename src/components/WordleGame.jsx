@@ -31,9 +31,8 @@ function WordleGame() {
 
       // Process Enter Key
       if(e.key==="Enter"){
-        debugger;
         if(!checkWord(currentRef.current.word)){
-          setMessage('Invalid Word');
+          setMessage('Not a Valid Word');
         }
         else{
           // show animation
@@ -42,6 +41,22 @@ function WordleGame() {
             r.index === currentIndex.current ? {...r, 'status': status } : r
           ));
           setCurrent(prev => prev+1);
+          setMessage('');
+          if(status.every( (s) => s===STATES.CORRECT)){
+            setTimeout(() => {
+              setMessage('You Won!');
+              window.removeEventListener('keydown', handleKeyDown);
+            }, 3000);
+          }
+          else {
+            if(currentIndex.current===5){
+              setTimeout(() => {
+                window.scrollTo(0,0);
+                setMessage(`You Lost! The word was ${guessWord.toUpperCase()}`);
+                window.removeEventListener('keydown', handleKeyDown);
+              }, 3000);
+            }
+          }
         }
       }
 
@@ -51,6 +66,7 @@ function WordleGame() {
             r.index === currentIndex.current ? {...r, 'word': r.word.slice(0,r.word.length-1) } : r
           ) : prevRows
         )
+        setMessage('');
       }
 
       if(/[a-zA-Z]/.test(e.key) && e.key.length===1) {
@@ -59,6 +75,7 @@ function WordleGame() {
             r.index === currentIndex.current ? {...r, 'word': r.word+e.key.toLowerCase() } : r
           ) : prevRows
         })
+        setMessage('');
       }
 
   }
@@ -72,9 +89,9 @@ function WordleGame() {
   }, [])
 
   return ( 
-      <div className="wordle-game">
+      <div className="bg-black flex flex-col pe-2">
         <Message text={message}></Message>
-        <div className="board">
+        <div className="grid grid-cols-1 grid-rows-6">
           { rows.map( (w, i) => (
               <TileRow key={w.index} word={w.word} status={w.status}></TileRow>
           ))}
