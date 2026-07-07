@@ -17,7 +17,7 @@ function WordleGame() {
   const [current, setCurrent] = useState(0);
   const [processing, setProcessing] = useState(false);
   const [guessWord, setGuessWord] = useState(getWordForTheDay());
-  const [message, setMessage] = useState('Test Message');  
+  const [message, setMessage] = useState('');  
   const currentRef = useRef(rows[0]);
   const currentIndex = useRef(0);
   useEffect(() => {
